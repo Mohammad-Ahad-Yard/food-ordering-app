@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@layer base {
+/* @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -72,9 +72,9 @@
   body {
     @apply bg-background text-foreground;
   }
-}
+} */
 
-/* 
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -156,4 +156,4 @@
   body {
     @apply bg-background text-foreground;
   }
-} */
+}
