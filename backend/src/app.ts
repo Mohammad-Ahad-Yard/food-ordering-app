@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { connectDB } from "./lib/db.js";
+import userRouter from "./routes/myUserRoutes";
 
 dotenv.config({path: './.env',});
 
@@ -16,8 +17,6 @@ const app = express();
 app.use(express.json());
 app.use(cors({origin:' * ',credentials:true}));
 
-app.get('/test', (_req: Request, res: Response) => {
-  res.json({message: "Hello!"});
-});
+app.use("/api/my/user", userRouter);
 
 app.listen(port, () => console.log('Server is working on Port:'+port+' in '+envMode+' Mode.'));

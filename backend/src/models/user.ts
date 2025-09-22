@@ -1,36 +1,28 @@
-
 import mongoose from "mongoose";
 
-
-interface IUser {
-  name: string;
-  email: string;
-  password: string;
-  createdAt: Date;
-}
-
-type IUserModel = mongoose.Model<IUser> & {};
-
-
-const schema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, "Please enter name"],
-  },
-  email: {
-    type: String,
-    required: [true, "Please enter email"],
-    unique: true,
-  },
-  password: {
-    type: String,
-    required: [true, "Please enter password"],
-    select: false,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
+const userSchema = new mongoose.Schema({
+    auth0Id: {
+        type: String,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    name: {
+        type: String
+    },
+    addressLine1: {
+        type: String
+    },
+    city: {
+        type: String
+    },
+    country: {
+        type: String
+    }
 });
 
-export const User = mongoose.model<IUser, IUserModel>("User", schema);
+const User = mongoose.model("User", userSchema);
+
+export default User;
